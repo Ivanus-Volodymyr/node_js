@@ -1,0 +1,3 @@
+name:kokos
+age:25
+city:Lviv
