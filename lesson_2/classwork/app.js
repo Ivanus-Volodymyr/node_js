@@ -63,15 +63,14 @@ app.get('/signIn', (req, res) => {
 });
 
 app.post('/signIn', (req, res) => {
-    let filter = [...users];
-    filter = users.filter(value => value.email === req.body.email && value.password === req.body.password);
+    const user = users.find(value => value.email === req.body.email && value.password === req.body.password);
 
-    if (filter) {
-        res.render('users', {filter});
+    if (user) {
+        res.render('user', {user});
         return;
     }
 
-    res.render('users', {filter});
+    res.render('userNotFound');
 });
 
 //delete
