@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .user {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        border-radius: 10px;
+        background: lightblue;
+    }
+</style>
+<body>
+
+{{#user}}
+    <div class="user">
+        <span>id: {{this.id}}</span>
+        <span>First name : {{this.firstName}}</span>
+        <span>Last name : {{this.lastName}}</span>
+        <span>Email : {{this.email}}</span>
+        <span>Password : {{this.password}}</span>
+        <span>Age : {{this.age}}</span>
+        <span>City : {{this.city}}</span>
+    </div>
+    <hr>
+{{/user}}
+
+</body>
+</html>
