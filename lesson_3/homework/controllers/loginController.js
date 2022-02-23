@@ -6,14 +6,7 @@ class LoginController {
     }
 
     renderLoginSome(req, res) {
-        const exist = users.some(value => value.email === req.body.email);
-
-        if (exist) {
-            res.redirect('/exist');
-            return;
-        }
-
-        users.push({...req.body, id: users.length + 1});
+        users.push({...req.body, id: new Date().getTime()});
         res.redirect('/users');
     }
 }

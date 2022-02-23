@@ -2,9 +2,10 @@ const users = require("../db/users");
 
 class DeleteController {
     deleteUser(req, res) {
-        const {userId} = req.params;
+        const {id} = req.params;
+        const index = users.findIndex(value => value.id === +id);
 
-        users.splice(+userId - 1, 1);
+        users.splice(index, 1);
         res.redirect('/users');
     }
 }
