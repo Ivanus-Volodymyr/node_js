@@ -17,11 +17,21 @@ export const userValidator = {
         age: Joi
             .number()
             .min(18)
-            .max(90)
-            .required(),
+            .max(90),
         phone: Joi
             .string()
             .regex(regex.phone),
+        email: Joi
+            .string()
+            .regex(regex.email)
+            .required(),
+        password: Joi
+            .string()
+            .regex(regex.password)
+            .required(),
+
+    }),
+    login: Joi.object({
         email: Joi
             .string()
             .regex(regex.email)
