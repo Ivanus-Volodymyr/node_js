@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import { cookie } from '../constans/cookie';
 import { tokenService, userService, authService } from '../services';
@@ -16,7 +16,7 @@ class AuthController {
         res.json(data);
     }
 
-    public async login(req:IRequestExtended, res:Response) {
+    public async login(req:IRequestExtended, res:Response, next:NextFunction) {
         try {
             const { id, email, password: hashPassword } = req.user as IUser;
             const { password } = req.body;
@@ -37,7 +37,7 @@ class AuthController {
                 Result: 'Ok',
             });
         } catch (err: any) {
-            res.status(400).json(err.message);
+            next(err);
         }
     }
 
@@ -50,7 +50,7 @@ class AuthController {
         return res.json('OK');
     }
 
-    public async refresh(req:IRequestExtended, res:Response) {
+    public async refresh(req:IRequestExtended, res:Response, next:NextFunction) {
         try {
             const { id, email } = req.user as IUser;
             const refreshTokenToDelete = req.get('Authorization');
@@ -70,7 +70,7 @@ class AuthController {
                 Result: 'Ok',
             });
         } catch (err: any) {
-            res.status(400).json(err.message);
+            next(err);
         }
     }
 }
