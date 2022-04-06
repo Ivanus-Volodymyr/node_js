@@ -1,0 +1,5 @@
+extends container
+block content
+    div.body
+        | Welcome #{user}, for drop you password click
+        a(href=url+ '/auth/change/?token='+ actionToken) drop you password
