@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        style
+            include style.css
+
+    body
+        div.header
+            | Hello #{user}!
+
+        block content
+
+        div.footer
+            | (c) Ivanus Volodymyr  Sep-2021 JS.
+            a(href=url) main page...
