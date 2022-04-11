@@ -9,39 +9,69 @@
 </head>
 <body>
 
-<button id="send1">SEND MESSAGE</button>
+<!--<button id="send1">SEND MESSAGE</button>-->
 
-<button id="room1">Join room 1</button>
-<button id="room2">Join room 2</button>
+<button id="room1">Music chat</button>
+<button id="room2">Film chat</button>
+
+<div>
+    <form id="form">
+        <label>
+            <input id="input" type="text">
+        </label>
+        <button>Send Message</button>
+    </form>
+
+    <div id="div">
+
+    </div>
+</div>
+
 <script>
     const socket = io('http://localhost:5500', {query: 'userId=8&accessToken=qweasd1122'});
-
-    const btn1 = document.getElementById('send1');
 
     const room1 = document.getElementById('room1');
     const room2 = document.getElementById('room2');
 
-    btn1.onclick = () => {
-      socket.emit('message:send', { message: 'Hello btn-1' });
-    }
+    const input = document.getElementById('input');
+    const form = document.getElementById('form');
+    const chatBlock = document.getElementById('div');
+
     console.log(socket);
+
+    const arr = [];
 
     socket.on('message:get-all', (data) => {
       console.log(data)
     });
 
     room1.onclick = () => {
-      socket.emit('join-rom', {id: 1});
+      socket.emit('join-room', {id: 1});
     }
 
     room2.onclick = () => {
-      socket.emit('join-rom', {id: 2});
+      socket.emit('join-room', {id: 2});
     }
 
     socket.on('user-join-room', (data) => {
-      console.log(data.message);
+      chatBlock.innerText = data.message;
     })
 
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      socket.emit('message-list', { messsage: input.value })
+
+    }
+    socket.on('user-message', (value) => {
+      chatBlock.innerText = value.messsage;
+      // arr.push(value);
+      // console.log(arr)
+    });
+
+    // console.log(arr);
+    // for (const arrElement of arr) {
+    //   chatBlock.innerText = arrElement.message;
+    // }
 </script>
 </body>
 </html>

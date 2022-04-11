@@ -31,36 +31,42 @@ io.on('connection', (socket: any) => {
         // socket.emit('message:get-all', { messages: [{ text: data.message }] });
     });
 
-    socket.on('join-rom', (data: any) => {
+    socket.on('join-room', (data: any) => {
         socket.join(data.id);
-
-        // one to many;
-        // eslint-disable-next-line max-len
-        // socket.broadcast.to(data.id).emit('user-join-room', { message: `User ${socket.id} join in room ${data.id}` });
-
+        let chat;
+        if (data.id === 1) {
+            chat = 'music';
+        }
+        if (data.id === 2) {
+            chat = 'film';
+        }
         // emit to all users in room include user SENDER
-        io.to(data.id).emit('user-join-room', { message: `User ${socket.id} join in room ${data.id}` });
+        io.to(data.id).emit('user-join-room', { message: `User ${socket.id} join in ${chat} chat` });
+
+        socket.on('message-list', (value: { message: string}) => {
+            io.to(data.id).emit('user-message', value);
+        });
     });
 
     // ---------------------------------------------------------------------------------------------
-
+    //
     // ONE TO ONE
     // socket.emit(event, {});
-
+    //
     // SEND TO ALL ONLINE USERS (INCLUDE SENDER)
     // io.emit(event, {})
-
+    //
     // SEND TO ALL ONLINE USERS (AVOID SENDER)
     // socket.broadcast.emit(event, {})
-
+    //
     // socket.join(room_id)
-
+    //
     // TO ROOM AVOID SENDER
     // socket.broadcast.to(room_id).emit(event, {})
-
+    //
     // TO ROOM INCLUDE SENDER
     // io.to(room_id).emit(event, {})
-
+    //
     // ---------------------------------------------------------------------------------------------
 });
 
