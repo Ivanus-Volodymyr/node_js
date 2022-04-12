@@ -43,7 +43,7 @@ io.on('connection', (socket: any) => {
         // emit to all users in room include user SENDER
         io.to(data.id).emit('user-join-room', { message: `User ${socket.id} join in ${chat} chat` });
 
-        socket.on('message-list', (value: { message: string}) => {
+        socket.on('message-list', (value: any) => {
             io.to(data.id).emit('user-message', value);
         });
     });

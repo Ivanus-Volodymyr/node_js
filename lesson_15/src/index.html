@@ -59,19 +59,16 @@
 
     form.onsubmit = (e) => {
       e.preventDefault();
-      socket.emit('message-list', { messsage: input.value })
+      let messsage = input.value;
+      socket.emit('message-list', messsage)
 
     }
     socket.on('user-message', (value) => {
-      chatBlock.innerText = value.messsage;
-      // arr.push(value);
-      // console.log(arr)
+      // chatBlock.innerText = value.messsage;
+      arr.push(value);
+      console.log(arr);
+      chatBlock.innerHTML = arr.map( text => `<div> ${text}</div>`)
     });
-
-    // console.log(arr);
-    // for (const arrElement of arr) {
-    //   chatBlock.innerText = arrElement.message;
-    // }
 </script>
 </body>
 </html>
