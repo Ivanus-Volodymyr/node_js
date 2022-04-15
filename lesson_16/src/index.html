@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+            integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Front</title>
+</head>
+<body>
+
+<!--<button id="send1">SEND MESSAGE</button>-->
+
+<button id="room1">Music chat</button>
+<button id="room2">Film chat</button>
+
+<div>
+    <form id="form">
+        <label>
+            <input id="input" type="text">
+        </label>
+        <button>Send Message</button>
+    </form>
+
+    <div id="div">
+
+    </div>
+</div>
+
+<script>
+    const socket = io('http://localhost:5500', {query: 'userId=8&accessToken=qweasd1122'});
+
+    const room1 = document.getElementById('room1');
+    const room2 = document.getElementById('room2');
+
+    const input = document.getElementById('input');
+    const form = document.getElementById('form');
+    const chatBlock = document.getElementById('div');
+
+    console.log(socket);
+
+    const arr = [];
+
+    socket.on('message:get-all', (data) => {
+      console.log(data)
+    });
+
+    room1.onclick = () => {
+      socket.emit('join-room', {id: 1});
+    }
+
+    room2.onclick = () => {
+      socket.emit('join-room', {id: 2});
+    }
+
+    socket.on('user-join-room', (data) => {
+      chatBlock.innerText = data.message;
+    })
+
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      let messsage = input.value;
+      socket.emit('message-list', messsage)
+
+    }
+    socket.on('user-message', (value) => {
+      // chatBlock.innerText = value.messsage;
+      arr.push(value);
+      console.log(arr);
+      chatBlock.innerHTML = arr.map( text => `<div> ${text}</div>`)
+    });
+</script>
+</body>
+</html>
