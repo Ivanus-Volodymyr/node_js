@@ -10,7 +10,7 @@ class UserController {
     }
 
     public async getUserById(
-        req: { params: {id: string}; },
+        req: { params: { id: string}; },
         res:Response,
     ):Promise<Response<IUser>> {
         const id = Number(req.params.id);
@@ -19,7 +19,7 @@ class UserController {
     }
 
     public async getUserByEmail(
-        req: { body: {email: string}},
+        req: { body: { email: string }},
         res: Response,
     ):Promise<Response<IUser>> {
         const { email } = req.body;
@@ -39,7 +39,7 @@ class UserController {
         return res.json(userById);
     }
 
-    public async DeleteUserById(req:{params: { id: string; }}, res: { json: (arg0: any) =>
+    public async DeleteUserById(req:{ params: { id: string; }}, res: { json: (arg0: any) =>
           Response<IUser, Record<string, any>> |
           PromiseLike<Response<IUser, Record<string, any>>>; }):Promise<Response<IUser>> {
         const id = Number(req.params.id);
