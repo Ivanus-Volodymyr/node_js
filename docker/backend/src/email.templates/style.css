@@ -1,0 +1,17 @@
+.header{
+    background-color: cornflowerblue;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+.footer {
+    background-color: #5b6a86;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+.body {
+    margin: 10px;
+    padding: 10px;
+    background-color: azure;
+}
