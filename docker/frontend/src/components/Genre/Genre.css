@@ -1,0 +1,17 @@
+.GenreButton{
+    width: 150px;
+    height: 40px;
+    border: 2px solid #01051f;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background: rgba(25, 27, 118, 0.86);
+    color: ivory;
+}
+.GenreButton:hover{
+    font-size: 20px;
+    width: 170px;
+    text-shadow: #dbbc56 1px 0 10px;
+}

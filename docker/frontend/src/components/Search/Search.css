@@ -1,0 +1,24 @@
+.Search{
+    margin-top: 20px;
+}
+.Search input{
+    width: 430px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.Search button{
+    margin-left: 20px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.Search button:hover{
+    width: 101px;
+    font-size: 21px;
+    box-shadow: 0 1px 16px 2px #01010E
+}
+.Search input:hover{
+    box-shadow: 0 1px 16px 2px #01010E
+}

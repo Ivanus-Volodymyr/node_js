@@ -1,0 +1,37 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 20px;
+    background: #060d4d;
+    box-shadow: 0 20px 15px -6px rgba(1, 51, 90, 0.29);}
+
+.Header h2 {
+    color: #6cb4ae;
+}
+
+.HomeLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    text-decoration: none;
+    color: ivory;
+    font-size: 17px;
+    position: absolute;
+    left: 30px;
+}
+
+.HomeLink:hover {
+    text-decoration: underline;
+    width: 170px;
+    font-size: 20px;
+    color: lightgray;
+    text-shadow: #FC0 1px 0 10px;
+}
+.Switcher{
+    position: absolute;
+    right: 30px;
+}

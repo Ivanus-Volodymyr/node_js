@@ -1,0 +1,40 @@
+.UserInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid rgba(1, 1, 23, 0.96);
+    padding: 20px;
+    border-radius: 40px;
+    position: relative;
+    background: radial-gradient(#526065, transparent);
+}
+
+.UserInfo:hover {
+    background: radial-gradient(#374245, transparent);
+    width: 101px;
+    height: 101px;
+    box-shadow: #02425e 1px 0 10px;
+}
+
+.UserImg {
+    display: flex;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background: url("image/user_no_photo_600x600.png") no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    image-orientation: unset;
+}
+
+.UserInformation {
+    display: flex;
+    flex-direction: column;
+    color: #010625;
+    font-size: 11px;
+    position: absolute;
+    top: 70px;
+}

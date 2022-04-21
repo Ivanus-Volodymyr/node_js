@@ -1,0 +1,67 @@
+.Overview {
+    display: flex;
+    flex-direction: column;
+}
+
+.MovieDetailMain {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.AllInfo {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 60px 60px;
+    font-size: 20px;
+    column-gap: 18px;
+}
+
+.OfficialTitle {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-decoration: underline;
+}
+
+.InfoDetail {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-top: 25px;
+    padding: 10px 50px;
+    row-gap: 10px;
+    font-size: 20px;
+    color: #0d102b;
+    background: radial-gradient(#d7e7fd, transparent);
+
+}
+
+.Poster_path {
+    position: absolute;
+    right: 100px;
+    top: unset;
+}
+.backdrop_path{
+    position: absolute;
+    right: 60px;
+    bottom: 9px;
+}

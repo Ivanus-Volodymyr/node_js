@@ -1,0 +1,20 @@
+.theme {
+    color: #dbbc56;
+    display: flex;
+    flex-direction: column;
+    background: #8f9090;
+    width: 100%;
+    margin: 0;
+    transition: 2s;
+}
+.SwitcherTheme button{
+    width: 200px;
+    height: 30px;
+    box-shadow: 0 1px 16px 2px #8d9292;
+    font-size: 16px;
+}
+.SwitcherTheme button:hover{
+    width: 201px;
+    height: 31px;
+    font-size: 17px;
+}

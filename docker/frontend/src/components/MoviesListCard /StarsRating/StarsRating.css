@@ -1,0 +1,19 @@
+.rating > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 40px;
+}
+
+.on {
+    color: rgb(61, 60, 60);
+}
+
+.off {
+    color: rgb(222, 245, 13);
+}
+
+.stars {
+    font-size: 30px;
+}
